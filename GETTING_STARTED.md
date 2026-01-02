@@ -2,13 +2,13 @@
 
 Welcome! This guide will help you get the project up and running.
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Python 3.10 or higher
 - pip (Python package manager)
 - Git (already installed if you cloned this repo)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Set Up Your Environment
 
@@ -120,7 +120,7 @@ campustrends/
 └── README.md             # Project overview
 ```
 
-## 🎓 Learning the Code
+## Learning the Code
 
 All code is heavily commented to teach ML concepts. Each module includes:
 
@@ -160,7 +160,7 @@ df = engineer.engineer_features(df)
 print(df.head())
 ```
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 ### Import Errors
 ```bash
@@ -187,7 +187,7 @@ cd campustrends
 python src/ingest.py --help
 ```
 
-## 📚 Next Steps
+## Next Steps
 
 Once you've processed your data:
 
@@ -196,28 +196,28 @@ Once you've processed your data:
 3. **Analyze topics**: (Coming in next phase)
 4. **Extract archetypes**: (Coming in next phase)
 
-## 💡 Tips
+## Tips
 
 - **Start small**: Test with a small dataset first (100-1000 posts)
 - **Read the comments**: The code is designed to teach - read the explanations!
 - **Experiment**: Try different parameters and see what happens
 - **Visualize**: Use the notebooks to understand your data before modeling
 
-## 🤝 Need Help?
+## Need Help?
 
 - Check the detailed comments in each source file
 - Review the PROJECT_SPEC.md for technical details
 - Look at example outputs in the exploration notebook
 
-## 📝 What's Implemented
+## What's Implemented
 
-✅ Complete data ingestion pipeline  
-✅ Text preprocessing with stopword removal  
-✅ Feature engineering (temporal + text)  
-✅ Engagement labeling  
-✅ Exploratory data analysis notebook  
+Complete data ingestion pipeline  
+Text preprocessing with stopword removal  
+Feature engineering (temporal + text)  
+Engagement labeling  
+Exploratory data analysis notebook  
 
-## 🚧 Coming Soon
+## Coming Soon
 
 ⏳ Topic modeling (BERTopic)  
 ⏳ Engagement prediction model  
@@ -226,6 +226,6 @@ Once you've processed your data:
 
 ---
 
-**Happy analyzing! 🎓📊**
+**Happy analyzing!**
 
 *Remember: Understanding your data is more important than fancy algorithms.*
