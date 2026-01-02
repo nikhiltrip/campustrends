@@ -1,0 +1,29 @@
+# CampusTrendML - Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core data processing
+pandas>=1.5.0
+numpy>=1.23.0
+
+# Machine learning
+scikit-learn>=1.2.0
+xgboost>=1.7.0
+
+# NLP and embeddings
+sentence-transformers>=2.2.0
+spacy>=3.5.0
+nltk>=3.8.0
+
+# Topic modeling
+bertopic>=0.15.0
+
+# Visualization
+matplotlib>=3.6.0
+seaborn>=0.12.0
+
+# Utilities
+python-dateutil>=2.8.0
+tqdm>=4.64.0
+
+# Optional: For post generation with local LLM
+# ollama>=0.1.0  # Uncomment if using Ollama for generation
