@@ -1,4 +1,4 @@
-# CampusTrendML
+# CampusTrendsML
 
 A local, offline machine learning system that analyzes anonymous campus social media posts (YikYak-style data) to detect trending topics, predict high-engagement posts, and identify recurring post archetypes—all for UCLA.
 
