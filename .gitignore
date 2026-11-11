@@ -67,3 +67,14 @@ htmlcov/
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !models/.gitkeep
+
+# Local runtime and private uploads
+.venv/
+node_modules/
+*.tsbuildinfo
+reports/
+!reports/.gitkeep
+.cache/
+
+.ruff_cache/
+.env.*
