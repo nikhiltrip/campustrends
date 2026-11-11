@@ -2,12 +2,14 @@
 
 I built CampusTrendsML to study how campus conversations change: which topics are growing, which kinds of posts gain attention, and how those patterns depend on timing. The project processes local exports of anonymous UCLA posts from Reddit-style or Yik Yak-style sources.
 
-The repo now includes an end-to-end Python pipeline and a React dashboard. **The included demo uses 1,512 fictional posts and artificial upvotes. No real campus dataset or live platform connection is included.** Sample metrics demonstrate the software, not real-world predictive performance.
+The `main` branch includes the Python pipeline and React dashboard merged from [PR #1](https://github.com/nikhiltrip/campustrends/pull/1). **The included demo uses 1,512 fictional posts and artificial upvotes. No real campus dataset or live platform connection is included.** Sample metrics demonstrate the software, not real-world predictive performance.
+
+[Setup](#run-the-dashboard) · [Data format](#use-your-own-data) · [Evaluation](#target-and-evaluation) · [Verification](#verify)
 
 ## What works
 
 - Clean CSV/JSON exports, validate timestamps and upvotes, remove duplicate IDs, and report rejected rows.
-- Discover six keyword topics with LDA and compare each topic's share of posts across adjacent seven-day windows.
+- Discover up to six keyword topics with LDA and compare each topic's share of posts across adjacent seven-day windows.
 - Train logistic regression and XGBoost on text, time-of-day, season, optional academic-week features, and topic proportions. Select a model on chronological validation data and evaluate it on a later test period.
 - Cluster high-engagement training posts with TF-IDF and K-means to inspect recurring post archetypes and their recent frequency.
 - Explore posts, topics, trends, and evaluation results in a responsive dashboard. Filter by topic, source, date window, or text, and inspect individual posts.
@@ -82,7 +84,15 @@ npm --prefix frontend run build
 
 Serve `dist/` with a static web server. It includes only the fictional sample report, filters, charts, and report import/export. Raw-data training and draft scoring require the local Python app. Opening a saved report does not load a model; analyze its source data locally to enable draft scoring.
 
-Private preview: https://nikhil-campus-trends.cometpond2.chatgpt.site
+[Owner-private hosted preview](https://nikhil-campus-trends.cometpond2.chatgpt.site). Hosts viewing the public repository can read the code and run it locally; this private link does not grant them access.
+
+| Capability | Local Python app | Hosted/static frontend |
+| --- | --- | --- |
+| Explore the fictional sample, filter posts, inspect topics/charts | Yes | Yes |
+| Import/export an analysis-report JSON file | Yes | Yes |
+| Upload raw CSV/JSON and train an analysis | Yes | No |
+| Score a draft using a trained model | Yes | No |
+| Collect real Reddit or Yik Yak posts | No | No |
 
 Do not copy a real-data report into `frontend/public/`. Reports contain post text. Regenerate the committed fixture with `.venv/bin/python scripts/export_demo.py`; this command generates synthetic source data itself.
 
@@ -95,7 +105,9 @@ npm --prefix frontend run build
 python run_pipeline.py --sample --output-dir reports/latest
 ```
 
-Tests cover invalid data, historical-window boundaries, duplicate timestamps, time zones, train-only features, saved model predictions, volume-normalized trends, API upload analysis, and local API access checks.
+**Last checked November 10, 2026:** 16 Python tests and four frontend contract tests passed, along with strict TypeScript checks and the production build. [GitHub Actions run 42928063377](https://github.com/nikhiltrip/campustrends/actions/runs/42928063377) passed on the merged `main` revision `f70e746`.
+
+Tests cover invalid data, historical-window boundaries, duplicate timestamps, time zones, train-only features, saved model predictions, volume-normalized trends, API upload analysis, and local API access checks. The fixtures are synthetic; passing tests does not establish useful predictions for real campus posts.
 
 ## Files
 
@@ -112,7 +124,14 @@ Tests cover invalid data, historical-window boundaries, duplicate timestamps, ti
 | `reports/` | Ignored local outputs and model artifacts |
 | `notebooks/` | Exploration and evaluation of locally generated reports |
 
-## Data handling and remaining work
+## Remaining research work
+
+- Acquire a real, deidentified campus-post dataset with consistent engagement-observation ages.
+- Align post dates with verified UCLA term dates and dated campus events or news. The included calendar dates are illustrative; there is no news feed integration.
+- Review topic labels and campus vocabulary, including events and slang that the synthetic examples do not cover.
+- Evaluate performance across multiple held-out time periods before treating draft scores as useful predictions.
+
+## Data handling and implementation limits
 
 The app does not collect posts, track users, or request platform credentials. Remove identifying information from free text before importing; dropping username columns does not anonymize the text itself. Treat saved reports as sensitive if the source content is sensitive. Load only model artifacts you created locally because joblib files can execute code.
 
