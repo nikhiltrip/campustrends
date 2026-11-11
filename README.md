@@ -1,8 +1,10 @@
 # CampusTrendsML
 
-I built CampusTrendsML to study how campus conversations change: which topics are growing, which kinds of posts gain attention, and how those patterns depend on timing. The project processes local exports of anonymous UCLA posts from Reddit-style or Yik Yak-style sources.
+I built CampusTrendsML to study how campus conversations change: which topics are growing, which kinds of posts gain attention, and how those patterns depend on timing. The pipeline accepts local CSV/JSON post exports for text analysis and engagement modeling.
 
-The `main` branch includes the Python pipeline and React dashboard merged from [PR #1](https://github.com/nikhiltrip/campustrends/pull/1). **The included demo uses 1,512 fictional posts and artificial upvotes. No real campus dataset or live platform connection is included.** Sample metrics demonstrate the software, not real-world predictive performance.
+**Current status: a working Python pipeline and React dashboard tested on synthetic data.** I have not evaluated it on real campus posts. Real-data collection and evaluation are the next priorities.
+
+The `main` branch includes the implementation merged from [PR #1](https://github.com/nikhiltrip/campustrends/pull/1). **The included demo uses 1,512 fictional posts and artificial upvotes. No real campus dataset or live platform connection is included.** Sample metrics demonstrate the software, not real-world predictive performance.
 
 [Setup](#run-the-dashboard) · [Data format](#use-your-own-data) · [Evaluation](#target-and-evaluation) · [Verification](#verify)
 
